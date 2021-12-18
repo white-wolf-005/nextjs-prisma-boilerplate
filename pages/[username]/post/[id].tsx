@@ -2,13 +2,14 @@ import React from 'react';
 import { GetServerSideProps } from 'next';
 import Layout from 'components/Layout';
 import Router from 'next/router';
-import axios from 'axios';
-import { PostItemProps } from 'components/PostItem';
-import prisma from 'lib-server/prisma';
+import Link from 'next/link';
 import { useSession } from 'next-auth/react';
+import axios from 'axios';
+import prisma from 'lib-server/prisma';
 import { Routes } from 'lib-client/constants';
 import { datesToStrings } from 'utils';
-import Link from 'next/link';
+import { PostItemProps } from 'components/PostItem';
+import { default as PostComponent } from 'views/Post';
 
 const publishOrDeletePost = async (
   id: number,
@@ -39,6 +40,12 @@ const Post: React.FC<PostItemProps> = ({ post }) => {
 
   const isOwner = session && session.user?.id === post.author?.id;
   const title = `${post.title} ${post.published ? '' : '(Draft)'}`;
+
+  return (
+    <Layout>
+      <PostComponent post={post} />
+    </Layout>
+  );
 
   return (
     <Layout>
