@@ -1,13 +1,9 @@
 import React from 'react';
-import { PostWithAuthorStr } from 'types';
 import { withBem } from 'utils/bem';
 import PostItem from 'components/PostItem';
+import { PostsProps } from 'components/PostItem';
 
-type DraftsProps = {
-  posts: PostWithAuthorStr[];
-};
-
-const Drafts: React.FC<DraftsProps> = ({ posts }) => {
+const Drafts: React.FC<PostsProps> = ({ posts }) => {
   const b = withBem('drafts');
 
   return (
