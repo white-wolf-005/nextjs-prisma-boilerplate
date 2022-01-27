@@ -4,7 +4,7 @@ import PostItem from 'components/PostItem';
 import { usePosts } from 'lib-client/react-query/posts/usePosts';
 import Pagination from 'components/Pagination';
 import QueryKeys from 'lib-client/react-query/queryKeys';
-import { useMe } from 'lib-client/react-query/users/useMe';
+import { useMe } from 'lib-client/react-query/auth/useMe';
 
 const Drafts: FC = () => {
   const b = withBem('drafts');
