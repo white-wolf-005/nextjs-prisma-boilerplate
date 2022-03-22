@@ -4,6 +4,7 @@ import ProfileView from 'views/Profile';
 import { fakeUser, fakePosts } from 'test/server/fake-data';
 
 describe('Profile View', () => {
+  // almost same like HomeView
   test('renders profile card, pagination section and posts list', async () => {
     // first user is admin
     customRender(<ProfileView profile={fakeUser} />);
