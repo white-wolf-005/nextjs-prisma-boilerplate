@@ -163,6 +163,43 @@ rm -rf ~/nextjs-prisma-boilerplate
 }
 ```
 
+### Codesandbox
+
+- add env vars in Codesandbox left panel, manually
+
+```bash
+SITE_PROTOCOL=http
+PORT=3001
+SITE_HOSTNAME=wo9qix.sse.codesandbox.io
+NEXTAUTH_URL=https://wo9qix.sse.codesandbox.io
+DATABASE_URL=postgres://...
+```
+
+- set port and yarnscript in `sandbox.config.json`
+
+```json
+{
+  "infiniteLoopProtection": true,
+  "hardReloadOnChange": false,
+  "view": "browser",
+  "container": {
+    "port": 3001,
+    "node": "16",
+    "startScript": "codesandbox:dev:env"
+  }
+}
+```
+
+- it fails with this, not enough disk space `df -H`
+
+```bash
+
+/dev/rbd22                 1.1G  1.1G   21M  99% /sandbox
+
+# error - Error: ENOSPC: no space left on device, write
+rm -rf node_modules && yarn install --ignore-engines
+```
+
 - copy `.env.development.replit.local.example` to `.env.development.replit.local` and set DATABASE_URL
 - too weak, nodemon crashes on `replit:dev:env`
 
