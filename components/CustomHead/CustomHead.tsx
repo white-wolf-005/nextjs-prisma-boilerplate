@@ -12,6 +12,8 @@ export interface Meta {
 
 const CustomHead = ({ ...customMeta }: Meta) => {
   const router = useRouter();
+
+  // this must use env var or SSR prop, must be same on SSR and CSR, no javascript
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL; // with '/'
   const trimmedBaseUrl = baseUrl.replace(/\/$/, ''); // without
 
